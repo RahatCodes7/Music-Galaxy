@@ -1,5 +1,8 @@
 import asyncio
 import importlib
+import os
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
@@ -11,6 +14,31 @@ from ShrutixMusic.misc import sudo
 from ShrutixMusic.plugins import ALL_MODULES
 from ShrutixMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
+
+
+class _HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain")
+        self.end_headers()
+        self.wfile.write(b"OK")
+
+    def log_message(self, *args):
+        pass
+
+
+def _start_health_server():
+    # Render web services need an open port; the bot itself binds none.
+    # Run a tiny health server in a daemon thread when PORT is set.
+    port = int(os.environ.get("PORT", "0") or 0)
+    if not port:
+        return
+    try:
+        server = HTTPServer(("0.0.0.0", port), _HealthHandler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        LOGGER(__name__).info(f"Health server listening on port {port}")
+    except Exception as e:
+        LOGGER(__name__).warning(f"Health server failed to start: {e}")
 
 
 async def init():
@@ -62,4 +90,5 @@ if __name__ == "__main__":
     import warnings
 
     warnings.filterwarnings("ignore", category=DeprecationWarning)
+    _start_health_server()
     asyncio.get_event_loop().run_until_complete(init())
