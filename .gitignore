@@ -1,0 +1,23 @@
+venv/
+__pycache__/
+
+# ── Environment & Secrets ──
+.env
+.env.*
+!.env.example
+
+# ── Runtime Data ──
+log.txt
+bot.log
+database.db
+activevc.txt
+cookies.txt
+
+# ── Telegram Sessions ──
+*.session
+*.session-journal
+
+# ── Caches & Downloads ──
+cache/
+downloads/
+*.py[cod]
