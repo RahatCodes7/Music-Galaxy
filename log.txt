@@ -200,3 +200,217 @@ Don't forget to visit @ShrutiBots
 [22-Sep-26 05:46:23 - INFO] - ShrutixMusic - Shrutix Music Bot Started Successfully.
 
 Don't forget to visit @ShrutiBots
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:22:23 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:22:28 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:22:33 - ERROR] - ShrutixMusic.core.bot - Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel.
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:34:51 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:34:54 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:35:00 - ERROR] - ShrutixMusic.core.bot - Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel.
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:38:02 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:38:05 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:38:10 - ERROR] - ShrutixMusic.core.bot - Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel. Reason : ChannelInvalid: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:41:32 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:41:34 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:41:39 - ERROR] - ShrutixMusic.core.bot - Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel. Reason : ChannelInvalid: Telegram says: [400 CHANNEL_INVALID] - The provided channel is invalid. (caused by "channels.GetChannels")
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:43:28 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:43:30 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:43:35 - INFO] - ShrutixMusic.core.bot - Music Bot Started as Music Galaxy 
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:44:29 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:45:11 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:45:43 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:45:45 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:45:50 - INFO] - ShrutixMusic.core.bot - Music Bot Started as Music Galaxy 
+[27-Sep-26 21:45:50 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 21:45:50 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 21:45:52 - ERROR] - ShrutixMusic.core.userbot - Failed to start Assistant 1: AuthKeyUnregistered: Telegram says: [401 AUTH_KEY_UNREGISTERED] - The specified authorization key is not registered in the system (for example, a PFS temporary key has expired). Delete your session file and login again. (caused by "updates.GetState")
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:49:54 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:49:56 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.bot - Music Bot Started as Music Galaxy 
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.userbot - Assistant 1 started successfully
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.userbot - Assistant 1 ID: 8934111800, Username: musicGalaxy0
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.userbot - Assistant 1 joined support chats
+[27-Sep-26 21:50:02 - INFO] - ShrutixMusic.core.userbot - Trying to send message to LOGGER_ID: -1003769276745
+[27-Sep-26 21:50:03 - INFO] - ShrutixMusic.core.userbot - Logger group info: Logs
+[27-Sep-26 21:50:03 - INFO] - ShrutixMusic.core.userbot - Assistant 1 status in logger group: ChatMemberStatus.ADMINISTRATOR
+[27-Sep-26 21:50:03 - INFO] - ShrutixMusic.core.userbot - Assistant 1 successfully sent message to logger group
+[27-Sep-26 21:50:03 - INFO] - ShrutixMusic.core.call - Starting PyTgCalls Client...
+
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:51:24 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:51:27 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.bot - Music Bot Started as Music Galaxy 
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.userbot - Assistant 1 started successfully
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.userbot - Assistant 1 ID: 8934111800, Username: musicGalaxy0
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.userbot - Assistant 1 joined support chats
+[27-Sep-26 21:51:32 - INFO] - ShrutixMusic.core.userbot - Trying to send message to LOGGER_ID: -1003769276745
+[27-Sep-26 21:51:33 - INFO] - ShrutixMusic.core.userbot - Logger group info: Logs
+[27-Sep-26 21:51:33 - INFO] - ShrutixMusic.core.userbot - Assistant 1 status in logger group: ChatMemberStatus.ADMINISTRATOR
+[27-Sep-26 21:51:33 - INFO] - ShrutixMusic.core.userbot - Assistant 1 successfully sent message to logger group
+[27-Sep-26 21:51:33 - INFO] - ShrutixMusic.core.call - Starting PyTgCalls Client...
+
+[27-Sep-26 21:51:42 - INFO] - ShrutixMusic - Shrutix Music Bot Started Successfully.
+
+Don't forget to visit @ShrutiBots
+[27-Sep-26 21:51:49 - ERROR] - pyrogram.dispatcher - Unexpected exception raised in MessageHandler:
+Traceback (most recent call last):
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\methods\advanced\resolve_peer.py", line 66, in resolve_peer
+    return await self.storage.get_peer_by_id(peer_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\storage\sqlite_storage.py", line 423, in get_peer_by_id
+    raise KeyError(f"ID not found: {peer_id}")
+KeyError: 'ID not found: 8670639929'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\methods\advanced\resolve_peer.py", line 98, in resolve_peer
+    return await self.storage.get_peer_by_id(peer_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\storage\sqlite_storage.py", line 423, in get_peer_by_id
+    raise KeyError(f"ID not found: {peer_id}")
+KeyError: 'ID not found: 8670639929'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\dispatcher.py", line 477, in handler_worker
+    await handler.callback(self.client, *args)
+  File "C:\Users\amale\Axyn\ShrutixMusic\utils\decorators\language.py", line 57, in wrapper
+    return await mystic(_, message, language)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\Axyn\ShrutixMusic\plugins\bot\start.py", line 96, in start_pm
+    await message.reply_photo(
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\types\messages_and_media\message.py", line 5050, in reply_photo
+    return await self._client.send_photo(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\Axyn\ShrutixMusic\core\bot.py", line 73, in send_photo
+    return await super().send_photo(chat_id, photo, caption, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\methods\messages\send_photo.py", line 346, in send_photo
+    reply_markup=await reply_markup.write(self) if reply_markup else None,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\types\bots_and_keyboards\inline_keyboard_markup.py", line 65, in write
+    buttons.append(await b.write(client))
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\types\bots_and_keyboards\inline_keyboard_button.py", line 357, in write
+    user_id=await client.resolve_peer(self.user_id),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amale\AppData\Roaming\Python\Python311\site-packages\pyrogram\methods\advanced\resolve_peer.py", line 100, in resolve_peer
+    raise PeerIdInvalid from e
+pyrogram.errors.exceptions.bad_request_400.PeerIdInvalid: Telegram says: [400 PEER_ID_INVALID] - The peer id being used is invalid or not known yet. Make sure you meet the peer before interacting with it.
+[27-Sep-26 21:52:09 - INFO] - ShrutixMusic.core.userbot - Stopping Assistants...
+[27-Sep-26 21:52:09 - INFO] - ShrutixMusic - Stopping ShrutixMusic Music Bot...
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 21:53:49 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 21:53:52 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.bot - Music Bot Started as Music Galaxy 
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.userbot - Assistant 1 started successfully
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.userbot - Assistant 1 ID: 8934111800, Username: musicGalaxy0
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.userbot - Assistant 1 joined support chats
+[27-Sep-26 21:53:58 - INFO] - ShrutixMusic.core.userbot - Trying to send message to LOGGER_ID: -1003769276745
+[27-Sep-26 21:53:59 - INFO] - ShrutixMusic.core.userbot - Logger group info: Logs
+[27-Sep-26 21:53:59 - INFO] - ShrutixMusic.core.userbot - Assistant 1 status in logger group: ChatMemberStatus.ADMINISTRATOR
+[27-Sep-26 21:53:59 - INFO] - ShrutixMusic.core.userbot - Assistant 1 successfully sent message to logger group
+[27-Sep-26 21:53:59 - INFO] - ShrutixMusic.core.call - Starting PyTgCalls Client...
+
+[27-Sep-26 21:54:06 - INFO] - ShrutixMusic - Shrutix Music Bot Started Successfully.
+
+Don't forget to visit @ShrutiBots
+[27-Sep-26 22:27:53 - INFO] - ShrutixMusic.core.userbot - Stopping Assistants...
+[27-Sep-26 22:27:53 - INFO] - ShrutixMusic - Stopping ShrutixMusic Music Bot...
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 22:29:14 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 22:31:23 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 22:31:26 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 22:31:31 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 22:31:31 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 22:31:33 - ERROR] - ShrutixMusic.core.userbot - Failed to start Assistant 1: AuthKeyUnregistered: Telegram says: [401 AUTH_KEY_UNREGISTERED] - The specified authorization key is not registered in the system (for example, a PFS temporary key has expired). Delete your session file and login again. (caused by "updates.GetState")
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.core.mongo - Connecting to your Mongo Database...
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.core.mongo - Connected to your Mongo Database.
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.core.dir - Directories Updated.
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.core.git - Git Client Found [VPS DEPLOYER]
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.misc - Local Database Initialized.
+[27-Sep-26 22:32:59 - INFO] - ShrutixMusic.core.bot - Starting Bot...
+[27-Sep-26 22:33:01 - INFO] - ShrutixMusic.misc - Sudoers Loaded.
+[27-Sep-26 22:33:06 - INFO] - ShrutixMusic.plugins - Successfully Imported Modules...
+[27-Sep-26 22:33:06 - INFO] - ShrutixMusic.core.userbot - Starting Assistants...
+[27-Sep-26 22:33:07 - INFO] - ShrutixMusic.core.userbot - Assistant 1 started successfully
+[27-Sep-26 22:33:07 - INFO] - ShrutixMusic.core.userbot - Assistant 1 ID: 8934111800, Username: musicGalaxy0
+[27-Sep-26 22:33:07 - INFO] - ShrutixMusic.core.userbot - Assistant 1 joined support chats
+[27-Sep-26 22:33:07 - INFO] - ShrutixMusic.core.userbot - Trying to send message to LOGGER_ID: -1003769276745
+[27-Sep-26 22:33:08 - INFO] - ShrutixMusic.core.userbot - Logger group info: Logs
+[27-Sep-26 22:33:08 - INFO] - ShrutixMusic.core.userbot - Assistant 1 status in logger group: ChatMemberStatus.ADMINISTRATOR
+[27-Sep-26 22:33:08 - INFO] - ShrutixMusic.core.userbot - Assistant 1 successfully sent message to logger group
+[27-Sep-26 22:33:08 - INFO] - ShrutixMusic.core.call - Starting PyTgCalls Client...
+
+[27-Sep-26 22:33:15 - INFO] - ShrutixMusic - Shrutix Music Bot Started Successfully.
+
+Don't forget to visit @ShrutiBots

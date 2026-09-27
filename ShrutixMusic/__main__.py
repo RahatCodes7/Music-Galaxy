@@ -59,4 +59,7 @@ async def init():
 
 
 if __name__ == "__main__":
+    import warnings
+
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
     asyncio.get_event_loop().run_until_complete(init())

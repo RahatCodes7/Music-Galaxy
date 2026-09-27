@@ -8,9 +8,9 @@ from pyrogram.types import Message
 from py_yt import VideosSearch, Playlist
 import aiohttp
 
-API_URL = os.environ.get("SHRUTI_API_URL", "https://api.shrutibots.site")
+YUKI_STREAM_URL = os.environ.get("YUKI_API_URL", "https://music.yukiapi.site").rstrip("/")
 
-API_KEY = os.environ.get("SHRUTI_API_KEY", "YOUR_API_KEY") ## Get This API KEY FROM TELEGRAM BOT USERNAME: @SHRUTIAPIBOT 
+YUKI_API_KEY = os.environ.get("YUKI_API_KEY", "yuki_359f448ac795aed90921c747e6958a69")
 
 DOWNLOAD_DIR = "downloads"
 
@@ -59,6 +59,7 @@ def time_to_seconds(time):
 
 async def _download_media(link: str, kind: str, timeout: int) -> str:
     video_id = link.split("v=")[-1].split("&")[0] if "v=" in link else link
+    video_id = video_id.split("/")[-1].split("?")[0]
     if not video_id or len(video_id) < 3:
         return None
 
@@ -76,22 +77,54 @@ async def _download_media(link: str, kind: str, timeout: int) -> str:
     if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
         return file_path
 
+    # Audio -> Yuki stream API (returns direct mp3)
+    if is_audio:
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    f"{YUKI_STREAM_URL}/stream/{video_id}",
+                    params={"key": YUKI_API_KEY},
+                    timeout=aiohttp.ClientTimeout(total=timeout),
+                ) as resp:
+                    if resp.status != 200:
+                        return None
+                    ctype = (resp.headers.get("Content-Type") or "").lower()
+                    if "json" in ctype:
+                        return None
+                    if external:
+                        found = _find_external(external, video_id, extensions, resp)
+                        if found:
+                            return found
+                    with open(file_path, "wb") as f:
+                        async for chunk in resp.content.iter_chunked(131072):
+                            f.write(chunk)
+            if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
+                return file_path
+            return None
+        except Exception:
+            if os.path.exists(file_path):
+                try:
+                    os.remove(file_path)
+                except Exception:
+                    pass
+            return None
+
+    # Video -> yt_dlp fallback (Yuki stream is audio-only)
     try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(
-                f"{API_URL}/download",
-                params={"url": video_id, "type": kind, "api_key": API_KEY},
-                timeout=aiohttp.ClientTimeout(total=timeout)
-            ) as resp:
-                if resp.status != 200:
-                    return None
-                if external:
-                    found = _find_external(external, video_id, extensions, resp)
-                    if found:
-                        return found
-                with open(file_path, "wb") as f:
-                    async for chunk in resp.content.iter_chunked(131072):
-                        f.write(chunk)
+        loop = asyncio.get_event_loop()
+
+        def _dl():
+            ydl_opts = {
+                "quiet": True,
+                "no_warnings": True,
+                "format": "best[ext=mp4]/best",
+                "outtmpl": file_path,
+                "merge_output_format": "mp4",
+            }
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
+
+        await loop.run_in_executor(None, _dl)
         if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
             return file_path
         return None
@@ -123,35 +156,7 @@ async def get_autoplay(
     timeout: int = AUTOPLAY_REQUEST_TIMEOUT,
     retries: int = AUTOPLAY_MAX_RETRIES,
 ) -> list:
-    video_id = video_id.split("v=")[-1].split("&")[0] if "v=" in video_id else video_id
-    if not video_id or len(video_id) < 3:
-        return []
-
-    attempt = 0
-    while attempt < retries:
-        attempt += 1
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    f"{API_URL}/autoplay",
-                    params={"video_id": video_id, "api_key": API_KEY},
-                    timeout=aiohttp.ClientTimeout(total=timeout),
-                ) as resp:
-                    if resp.status == 200:
-                        data = await resp.json()
-                        return data.get("tracks", [])
-                    if resp.status in AUTOPLAY_RETRYABLE_STATUS and attempt < retries:
-                        await asyncio.sleep(AUTOPLAY_RETRY_DELAY)
-                        continue
-                    return []
-        except (asyncio.TimeoutError, aiohttp.ClientError):
-            if attempt < retries:
-                await asyncio.sleep(AUTOPLAY_RETRY_DELAY)
-                continue
-            return []
-        except Exception:
-            return []
-
+    # Yuki API has no autoplay endpoint, disable gracefully.
     return []
 
 

@@ -60,8 +60,8 @@ class Userbot(Client):
                 
                 # Try to join support chats
                 try:
-                    await self.one.join_chat("ShrutiBots")
-                    await self.one.join_chat("ShrutiSupportChat")
+                    await self.one.join_chat("delete_tee7")
+                    await self.one.join_chat("delete_ee8")
                     LOGGER(__name__).info("Assistant 1 joined support chats")
                 except Exception as e:
                     LOGGER(__name__).warning(f"Assistant 1 failed to join support chats: {e}")
@@ -111,8 +111,8 @@ class Userbot(Client):
                 await self.two.start()
                 
                 try:
-                    await self.two.join_chat("ShrutiBots")
-                    await self.two.join_chat("ShrutiSupportChat")
+                    await self.two.join_chat("delete_tee7")
+                    await self.two.join_chat("delete_ee8")
                 except:
                     pass
                     
@@ -139,8 +139,8 @@ class Userbot(Client):
                 await self.three.start()
                 
                 try:
-                    await self.three.join_chat("ShrutiBots")
-                    await self.three.join_chat("ShrutiSupportChat")
+                    await self.three.join_chat("delete_tee7")
+                    await self.three.join_chat("delete_ee8")
                 except:
                     pass
                     
@@ -166,8 +166,8 @@ class Userbot(Client):
                 await self.four.start()
                 
                 try:
-                    await self.four.join_chat("ShrutiBots")
-                    await self.four.join_chat("ShrutiSupportChat")
+                    await self.four.join_chat("delete_tee7")
+                    await self.four.join_chat("delete_ee8")
                 except:
                     pass
                     
@@ -193,8 +193,8 @@ class Userbot(Client):
                 await self.five.start()
                 
                 try:
-                    await self.five.join_chat("ShrutiBots")
-                    await self.five.join_chat("ShrutiSupportChat")
+                    await self.five.join_chat("delete_tee7")
+                    await self.five.join_chat("delete_ee8")
                 except:
                     pass
                     
