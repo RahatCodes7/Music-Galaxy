@@ -34,6 +34,10 @@ UPSTREAM_REPO = getenv(
 
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 
+# Runtime auto update, off by default. A container deployment is rebuilt from
+# the repository on every release, the updater only helps on a plain vps.
+AUTO_UPDATE = getenv("AUTO_UPDATE", "false").lower() in ("1", "true", "yes", "on")
+
 GIT_TOKEN = getenv("GIT_TOKEN")
 
 # Get API Key from @SHRUTIAPIBOT

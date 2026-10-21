@@ -1,10 +1,13 @@
 import asyncio
 import shlex
+import sys
 from typing import Tuple
 
 import config
 
 from ..logging import LOGGER
+
+GIT_TIMEOUT = 120
 
 try:
     from git import Repo
@@ -33,11 +36,14 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
             process.pid,
         )
 
-    return asyncio.get_event_loop().run_until_complete(install_requirements())
+    return asyncio.run(install_requirements())
 
 
 def git():
     if Repo is None:
+        return
+    if not config.AUTO_UPDATE:
+        LOGGER(__name__).info("Auto update disabled")
         return
     REPO_LINK = config.UPSTREAM_REPO
     if config.GIT_TOKEN:
@@ -53,12 +59,13 @@ def git():
         LOGGER(__name__).info(f"Invalid Git Command")
     except InvalidGitRepositoryError:
         try:
+            LOGGER(__name__).info("Fetching updates from upstream repository...")
             repo = Repo.init()
             if "origin" in repo.remotes:
                 origin = repo.remote("origin")
             else:
                 origin = repo.create_remote("origin", UPSTREAM_REPO)
-            origin.fetch()
+            origin.fetch(timeout=GIT_TIMEOUT)
             repo.create_head(
                 config.UPSTREAM_BRANCH,
                 origin.refs[config.UPSTREAM_BRANCH],
@@ -72,13 +79,15 @@ def git():
             except BaseException:
                 pass
             nrs = repo.remote("origin")
-            nrs.fetch(config.UPSTREAM_BRANCH)
+            nrs.fetch(config.UPSTREAM_BRANCH, timeout=GIT_TIMEOUT)
             try:
-                nrs.pull(config.UPSTREAM_BRANCH)
+                nrs.pull(config.UPSTREAM_BRANCH, timeout=GIT_TIMEOUT)
             except GitCommandError:
                 repo.git.reset("--hard", "FETCH_HEAD")
-            install_req("pip3 install --no-cache-dir -r requirements.txt")
-            LOGGER(__name__).info(f"Fetching updates from upstream repository...")
+            install_req(
+                f"{sys.executable} -m pip install --no-cache-dir -r requirements.txt"
+            )
+            LOGGER(__name__).info("Updates applied from upstream repository")
         except Exception as e:
             LOGGER(__name__).warning(
                 f"Auto update skipped: {type(e).__name__}: {e}"
