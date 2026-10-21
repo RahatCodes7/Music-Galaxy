@@ -26,10 +26,14 @@ RUN command -v ffmpeg >/dev/null 2>&1 || python3 /tmp/setup_ffmpeg.py
 WORKDIR /app
 
 COPY requirements.txt ./
+# the network of the deployment host drops connections now and then, so pip
+# retries hard instead of failing the build on a single timeout
 RUN python3 -m ensurepip --default-pip >/dev/null 2>&1 || true; \
-    python3 -m pip install --no-cache-dir --upgrade pip >/dev/null 2>&1 || true; \
-    (python3 -m pip install --no-cache-dir -r requirements.txt \
-    || uv pip install --system --no-cache -r requirements.txt)
+    python3 -m pip install --no-cache-dir --retries 10 --timeout 120 \
+        --upgrade pip >/dev/null 2>&1 || true; \
+    (python3 -m pip install --no-cache-dir --retries 10 --timeout 120 \
+        -r requirements.txt \
+    || uv pip install --system --no-cache --retries 10 -r requirements.txt)
 
 COPY . /app/
 RUN chmod +x /app/start /app/setup
