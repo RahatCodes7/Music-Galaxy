@@ -25,6 +25,17 @@ VIDEO_DOWNLOAD_PATH = _env_dir("VIDEO_DOWNLOAD_PATH")
 AUDIO_EXTENSIONS = ("webm", "m4a", "mp3", "ogg")
 VIDEO_EXTENSIONS = ("mp4", "mkv", "webm")
 
+_CONTENT_EXTENSIONS = {
+    "audio/mpeg": "mp3",
+    "audio/mp4": "m4a",
+    "audio/x-m4a": "m4a",
+    "audio/webm": "webm",
+    "audio/ogg": "ogg",
+    "video/mp4": "mp4",
+    "video/webm": "webm",
+    "video/matroska": "mkv",
+}
+
 
 def is_external_path(path) -> bool:
     if not path:
@@ -57,6 +68,86 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
+def _extension_for(media_type: str, headers) -> str:
+    disposition = headers.get("Content-Disposition") or ""
+    match = re.search(r'filename="?([^";]+)"?', disposition)
+    if match:
+        ext = os.path.splitext(match.group(1))[1].lstrip(".").lower()
+        if ext:
+            return ext
+    ctype = (headers.get("Content-Type") or "").split(";")[0].strip().lower()
+    return _CONTENT_EXTENSIONS.get(
+        ctype, "m4a" if media_type == "audio" else "mp4"
+    )
+
+
+def _find_cached(video_id: str, extensions) -> str:
+    for ext in extensions:
+        path = os.path.join(DOWNLOAD_DIR, f"{video_id}.{ext}")
+        if os.path.isfile(path) and os.path.getsize(path) > 0:
+            return path
+    return None
+
+
+async def _download_from_yuki(video_id: str, media_type: str, timeout: int) -> str:
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    file_path = None
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                f"{YUKI_STREAM_URL}/stream/{video_id}",
+                params={"type": media_type, "api_key": YUKI_API_KEY},
+                timeout=aiohttp.ClientTimeout(total=timeout),
+            ) as resp:
+                if resp.status != 200:
+                    return None
+                ctype = (resp.headers.get("Content-Type") or "").lower()
+                if "json" in ctype:
+                    return None
+                ext = _extension_for(media_type, resp.headers)
+                file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.{ext}")
+                with open(file_path, "wb") as f:
+                    async for chunk in resp.content.iter_chunked(131072):
+                        f.write(chunk)
+    except Exception:
+        if file_path and os.path.exists(file_path):
+            try:
+                os.remove(file_path)
+            except Exception:
+                pass
+        return None
+    if os.path.isfile(file_path) and os.path.getsize(file_path) > 0:
+        return file_path
+    return None
+
+
+async def _download_with_ytdlp(video_id: str, is_audio: bool, timeout: int) -> str:
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    extensions = AUDIO_EXTENSIONS if is_audio else VIDEO_EXTENSIONS
+    try:
+        loop = asyncio.get_event_loop()
+
+        def _dl():
+            ydl_opts = {
+                "quiet": True,
+                "no_warnings": True,
+                "socket_timeout": timeout,
+                "outtmpl": os.path.join(DOWNLOAD_DIR, f"{video_id}.%(ext)s"),
+            }
+            if is_audio:
+                ydl_opts["format"] = "bestaudio[ext=m4a]/bestaudio"
+            else:
+                ydl_opts["format"] = "best[ext=mp4]/best"
+                ydl_opts["merge_output_format"] = "mp4"
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
+
+        await loop.run_in_executor(None, _dl)
+    except Exception:
+        return None
+    return _find_cached(video_id, extensions)
+
+
 async def _download_media(link: str, kind: str, timeout: int) -> str:
     video_id = link.split("v=")[-1].split("&")[0] if "v=" in link else link
     video_id = video_id.split("/")[-1].split("?")[0]
@@ -73,68 +164,16 @@ async def _download_media(link: str, kind: str, timeout: int) -> str:
             return found
 
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-    file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.{'mp3' if is_audio else 'mp4'}")
-    if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-        return file_path
+    cached = _find_cached(video_id, extensions)
+    if cached:
+        return cached
 
-    # Audio -> Yuki stream API (returns direct mp3)
-    if is_audio:
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    f"{YUKI_STREAM_URL}/stream/{video_id}",
-                    params={"key": YUKI_API_KEY},
-                    timeout=aiohttp.ClientTimeout(total=timeout),
-                ) as resp:
-                    if resp.status != 200:
-                        return None
-                    ctype = (resp.headers.get("Content-Type") or "").lower()
-                    if "json" in ctype:
-                        return None
-                    if external:
-                        found = _find_external(external, video_id, extensions, resp)
-                        if found:
-                            return found
-                    with open(file_path, "wb") as f:
-                        async for chunk in resp.content.iter_chunked(131072):
-                            f.write(chunk)
-            if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-                return file_path
-            return None
-        except Exception:
-            if os.path.exists(file_path):
-                try:
-                    os.remove(file_path)
-                except Exception:
-                    pass
-            return None
+    media_type = "audio" if is_audio else "video"
+    downloaded = await _download_from_yuki(video_id, media_type, timeout)
+    if downloaded:
+        return downloaded
 
-    # Video -> yt_dlp fallback (Yuki stream is audio-only)
-    try:
-        loop = asyncio.get_event_loop()
-
-        def _dl():
-            ydl_opts = {
-                "quiet": True,
-                "no_warnings": True,
-                "format": "best[ext=mp4]/best",
-                "outtmpl": file_path,
-                "merge_output_format": "mp4",
-            }
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
-
-        await loop.run_in_executor(None, _dl)
-        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-            return file_path
-        return None
-    except Exception:
-        if os.path.exists(file_path):
-            try:
-                os.remove(file_path)
-            except Exception:
-                pass
-        return None
+    return await _download_with_ytdlp(video_id, is_audio, timeout)
 
 
 async def download_song(link: str) -> str:
