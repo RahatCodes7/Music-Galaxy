@@ -1,0 +1,31 @@
+# Version control and CI metadata
+.git
+.gitignore
+.github
+.GitHub
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Runtime data
+log.txt
+bot.log
+database.db
+activevc.txt
+cookies.txt
+*.session
+*.session-journal
+
+# Caches, downloads and build artifacts
+cache/
+downloads/
+raw_files/
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# OS noise
+.DS_Store
