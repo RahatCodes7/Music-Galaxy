@@ -74,3 +74,5 @@ def git():
             LOGGER(__name__).warning(
                 f"Auto update skipped: {type(e).__name__}: {e}"
             )
+    except Exception as e:
+        LOGGER(__name__).info(f"Git Client Unavailable: {type(e).__name__}")
