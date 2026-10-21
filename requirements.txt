@@ -8,12 +8,11 @@ gitpython
 hachoir
 heroku3
 httpx[http2]
-kurigram>=2.2.26
+kurigram @ git+https://github.com/KurimuzonAkuma/kurigram.git@56a193aa6ddb40a51d93e43b036cf05708870128
 motor
 pillow
 psutil
 py-tgcalls==0.9.7
-pykeyboard
 python-dotenv
 pyyaml
 requests
