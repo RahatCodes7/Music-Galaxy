@@ -8,7 +8,7 @@ gitpython
 hachoir
 heroku3
 httpx[http2]
-kurigram @ git+https://github.com/KurimuzonAkuma/kurigram.git@56a193aa6ddb40a51d93e43b036cf05708870128
+kurigram @ https://github.com/KurimuzonAkuma/kurigram/archive/56a193aa6ddb40a51d93e43b036cf05708870128.tar.gz
 motor
 pillow
 psutil
