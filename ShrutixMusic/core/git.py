@@ -2,12 +2,19 @@ import asyncio
 import shlex
 from typing import Tuple
 
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
-
 import config
 
 from ..logging import LOGGER
+
+try:
+    from git import Repo
+    from git.exc import GitCommandError, InvalidGitRepositoryError
+except ImportError as e:
+    # gitpython raises at import time when the git binary is missing, the bot
+    # has to start anyway, the runtime auto update is simply skipped
+    Repo = None
+    GitCommandError = InvalidGitRepositoryError = RuntimeError
+    LOGGER(__name__).info(f"Git Client Unavailable: {e}")
 
 
 def install_req(cmd: str) -> Tuple[str, str, int, int]:
@@ -30,6 +37,8 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
 
 
 def git():
+    if Repo is None:
+        return
     REPO_LINK = config.UPSTREAM_REPO
     if config.GIT_TOKEN:
         GIT_USERNAME = REPO_LINK.split("com/")[1].split("/")[0]
