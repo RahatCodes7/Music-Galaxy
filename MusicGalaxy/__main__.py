@@ -10,7 +10,6 @@ from pytgcalls.exceptions import NoActiveGroupCall
 import config
 from MusicGalaxy import LOGGER, galaxy, userbot
 from MusicGalaxy.core.call import Galaxy
-from MusicGalaxy.core.postgres import connect
 from MusicGalaxy.misc import sudo
 from MusicGalaxy.plugins import ALL_MODULES
 from MusicGalaxy.utils.database import get_banned_users, get_gbanned
@@ -52,7 +51,6 @@ async def init():
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
-    await connect()
     await sudo()
     try:
         users = await get_gbanned()

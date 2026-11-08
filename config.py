@@ -13,11 +13,7 @@ API_HASH = getenv("API_HASH", "")
 # Get from @BotFather
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
-# Database (PostgreSQL) - https://www.postgresql.org
-# Set DATABASE_URL to your PostgreSQL connection string (e.g. from Neon / Supabase / self-hosted)
-DATABASE_URL = getenv("DATABASE_URL", "")
-
-# Legacy MongoDB URI (kept only for reference; no longer used)
+# Get from MongoDB Atlas
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "60"))

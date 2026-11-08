@@ -8,7 +8,7 @@ gitpython
 hachoir
 heroku3
 httpx[http2]
-asyncpg
+motor
 pillow
 psutil
 pyrogram
