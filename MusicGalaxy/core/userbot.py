@@ -58,15 +58,25 @@ class Userbot(Client):
                 self.one.username = self.one.me.username
                 LOGGER(__name__).info(f"Assistant 1 ID: {self.one.id}, Username: {self.one.username}")
                 
-                # Optional: join support chats if configured (placeholder disabled)
-                # To enable, set SUPPORT_CHAT in config and uncomment:
-                # try:
-                #     if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
-                #         username = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/")
-                #         await self.one.join_chat(username)
-                # except Exception as e:
-                #     LOGGER(__name__).warning(f"Assistant 1 failed to join support chat: {e}")
-                pass
+                # Join support channel & chat (delete_tee7 = Support Channel, delete_ee8 = Support Chat)
+                try:
+                    await self.one.join_chat("delete_tee7")  # Support Channel
+                    await self.one.join_chat("delete_ee8")  # Support Chat
+                    LOGGER(__name__).info("Assistant 1 joined support chats")
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Assistant 1 failed to join support chats: {e}")
+                # Also try dynamic join from config if set to real links
+                try:
+                    if config.SUPPORT_CHANNEL and "t.me/" in config.SUPPORT_CHANNEL:
+                        ch = config.SUPPORT_CHANNEL.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_channel", "delete_tee7"):
+                            await self.one.join_chat(ch)
+                    if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
+                        ch = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_group", "delete_ee8"):
+                            await self.one.join_chat(ch)
+                except:
+                    pass
                 
                 # Check if LOGGER_ID is valid
                 if not config.LOGGER_ID:
@@ -112,7 +122,24 @@ class Userbot(Client):
             try:
                 await self.two.start()
                 
-                # Optional support chat join disabled (see above)
+                # Join support channel & chat
+                try:
+                    await self.two.join_chat("delete_tee7")  # Support Channel
+                    await self.two.join_chat("delete_ee8")  # Support Chat
+                except:
+                    pass
+                # Also try config-based join
+                try:
+                    if config.SUPPORT_CHANNEL and "t.me/" in config.SUPPORT_CHANNEL:
+                        ch = config.SUPPORT_CHANNEL.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_channel", "delete_tee7"):
+                            await self.two.join_chat(ch)
+                    if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
+                        ch = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_group", "delete_ee8"):
+                            await self.two.join_chat(ch)
+                except:
+                    pass
                 assistants.append(2)
                 
                 try:
@@ -135,6 +162,22 @@ class Userbot(Client):
             try:
                 await self.three.start()
                 
+                try:
+                    await self.three.join_chat("delete_tee7")  # Support Channel
+                    await self.three.join_chat("delete_ee8")  # Support Chat
+                except:
+                    pass
+                try:
+                    if config.SUPPORT_CHANNEL and "t.me/" in config.SUPPORT_CHANNEL:
+                        ch = config.SUPPORT_CHANNEL.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_channel", "delete_tee7"):
+                            await self.three.join_chat(ch)
+                    if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
+                        ch = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_group", "delete_ee8"):
+                            await self.three.join_chat(ch)
+                except:
+                    pass
                 assistants.append(3)
                 
                 try:
@@ -156,6 +199,22 @@ class Userbot(Client):
             try:
                 await self.four.start()
                 
+                try:
+                    await self.four.join_chat("delete_tee7")  # Support Channel
+                    await self.four.join_chat("delete_ee8")  # Support Chat
+                except:
+                    pass
+                try:
+                    if config.SUPPORT_CHANNEL and "t.me/" in config.SUPPORT_CHANNEL:
+                        ch = config.SUPPORT_CHANNEL.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_channel", "delete_tee7"):
+                            await self.four.join_chat(ch)
+                    if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
+                        ch = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_group", "delete_ee8"):
+                            await self.four.join_chat(ch)
+                except:
+                    pass
                 assistants.append(4)
                 
                 try:
@@ -177,6 +236,22 @@ class Userbot(Client):
             try:
                 await self.five.start()
                 
+                try:
+                    await self.five.join_chat("delete_tee7")  # Support Channel
+                    await self.five.join_chat("delete_ee8")  # Support Chat
+                except:
+                    pass
+                try:
+                    if config.SUPPORT_CHANNEL and "t.me/" in config.SUPPORT_CHANNEL:
+                        ch = config.SUPPORT_CHANNEL.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_channel", "delete_tee7"):
+                            await self.five.join_chat(ch)
+                    if config.SUPPORT_CHAT and "t.me/" in config.SUPPORT_CHAT:
+                        ch = config.SUPPORT_CHAT.split("t.me/")[-1].strip("/ ")
+                        if ch not in ("your_group", "delete_ee8"):
+                            await self.five.join_chat(ch)
+                except:
+                    pass
                 assistants.append(5)
                 
                 try:
