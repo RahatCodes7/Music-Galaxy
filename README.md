@@ -102,8 +102,9 @@ UPSTREAM_REPO=https://github.com/RahatCodes7/Music-Galaxy.git
 SUPPORT_CHAT=https://t.me/your_group
 SUPPORT_CHANNEL=https://t.me/your_channel
 START_IMG_URL=...
-YUKI_API_URL=https://music.yukiapi.site
-YUKI_API_KEY=...
+DOWNLOAD_API_URL=https://dltapi.cc.cd
+DOWNLOAD_API_KEY=dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw
+# Back-compat aliases: YUKI_API_URL / YUKI_API_KEY, DLT_API_URL / DLT_API_KEY
 ```
 
 **Never commit `.env`, bot tokens, API keys or Pyrogram session strings.**

@@ -8,9 +8,26 @@ from pyrogram.types import Message
 from py_yt import VideosSearch, Playlist
 import aiohttp
 
-YUKI_STREAM_URL = os.environ.get("YUKI_API_URL", "https://music.yukiapi.site").rstrip("/")
+YUKI_STREAM_URL = os.environ.get("YUKI_API_URL", "https://dltapi.cc.cd").rstrip("/")
+# Back-compat: also support DLT_API_URL / DOWNLOAD_API_URL
+if YUKI_STREAM_URL == "https://music.yukiapi.site":
+    YUKI_STREAM_URL = os.environ.get("DLT_API_URL", os.environ.get("DOWNLOAD_API_URL", YUKI_STREAM_URL)).rstrip("/")
+if "dltapi.cc.cd" in YUKI_STREAM_URL or os.environ.get("DLT_API_URL") or os.environ.get("DOWNLOAD_API_URL"):
+    # Use DLT base if provided
+    _dlt = os.environ.get("DLT_API_URL") or os.environ.get("DOWNLOAD_API_URL") or YUKI_STREAM_URL
+    YUKI_STREAM_URL = _dlt.rstrip("/")
 
-YUKI_API_KEY = os.environ.get("YUKI_API_KEY", "yuki_359f448ac795aed90921c747e6958a69")
+YUKI_API_KEY = os.environ.get("YUKI_API_KEY", "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw")
+# Back-compat: DLT_API_KEY / DOWNLOAD_API_KEY overrides
+YUKI_API_KEY = os.environ.get("DLT_API_KEY", os.environ.get("DOWNLOAD_API_KEY", YUKI_API_KEY))
+if not YUKI_API_KEY or YUKI_API_KEY == "yuki_359f448ac795aed90921c747e6958a69":
+    YUKI_API_KEY = "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw"
+
+# Aliases for new naming
+DLT_API_URL = YUKI_STREAM_URL
+DLT_API_KEY = YUKI_API_KEY
+DOWNLOAD_API_URL = YUKI_STREAM_URL
+DOWNLOAD_API_KEY = YUKI_API_KEY
 
 DOWNLOAD_DIR = "downloads"
 

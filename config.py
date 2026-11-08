@@ -40,6 +40,16 @@ AUTO_UPDATE = getenv("AUTO_UPDATE", "false").lower() in ("1", "true", "yes", "on
 
 GIT_TOKEN = getenv("GIT_TOKEN")
 
+# Download API (DLT) - https://dltapi.cc.cd
+# Primary vars: YUKI_API_URL / YUKI_API_KEY (kept for backward compat)
+# Aliases: DLT_API_URL / DLT_API_KEY, DOWNLOAD_API_URL / DOWNLOAD_API_KEY
+YUKI_API_URL = getenv("YUKI_API_URL", getenv("DLT_API_URL", getenv("DOWNLOAD_API_URL", "https://dltapi.cc.cd")))
+YUKI_API_KEY = getenv("YUKI_API_KEY", getenv("DLT_API_KEY", getenv("DOWNLOAD_API_KEY", "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw")))
+DLT_API_URL = getenv("DLT_API_URL", YUKI_API_URL)
+DLT_API_KEY = getenv("DLT_API_KEY", YUKI_API_KEY)
+DOWNLOAD_API_URL = getenv("DOWNLOAD_API_URL", YUKI_API_URL)
+DOWNLOAD_API_KEY = getenv("DOWNLOAD_API_KEY", YUKI_API_KEY)
+
 # Get API Key from @GALAXYAPIBOT
 
 SUPPORT_CHANNEL = getenv(

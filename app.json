@@ -58,14 +58,24 @@
       "required": true
     },
     "YUKI_API_URL": {
-      "description": "Your Yuki API URL",
-      "value": "https://music.yukiapi.site",
+      "description": "Download API base URL (Yuki/DLT compatible)",
+      "value": "https://dltapi.cc.cd",
       "required": true
     },
     "YUKI_API_KEY": {
-      "description": "Get API key from Telegram bot @GALAXYAPIBOT",
-      "value": "",
+      "description": "Download API key (YUKI/DLT) - get from provider",
+      "value": "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw",
       "required": true
+    },
+    "DLT_API_URL": {
+      "description": "Download API base URL (alias for YUKI_API_URL)",
+      "value": "https://dltapi.cc.cd",
+      "required": false
+    },
+    "DLT_API_KEY": {
+      "description": "Download API key (alias for YUKI_API_KEY)",
+      "value": "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw",
+      "required": false
     }
   },
   "buildpacks": [
