@@ -1,12 +1,12 @@
-# AXYN Music Bot
+# Music Galaxy Music Bot
 
-A Telegram music bot customized and maintained under the **AXYN** branding.
+A Telegram music bot customized and maintained under the **Music Galaxy** branding.
 
 ## Branding
 
-- Updates: https://t.me/AxynUpdates
-- Support: https://t.me/AxynChats
-- Creator: @Thegrime
+- Updates: https://t.me/your_channel
+- Support: https://t.me/your_group
+- Creator: @RahatCodes7
 
 ## Features
 
@@ -36,8 +36,8 @@ A Telegram music bot customized and maintained under the **AXYN** branding.
 ## Local / VPS deployment
 
 ```bash
-git clone https://github.com/sellscredit-bit/Axyn.git
-cd Axyn
+git clone https://github.com/RahatCodes7/Music-Galaxy.git
+cd Music-Galaxy
 
 python3 -m venv venv
 source venv/bin/activate
@@ -48,24 +48,24 @@ pip install -r requirements.txt
 cp .env.example .env
 nano .env
 
-python3 -m ShrutixMusic
+python3 -m MusicGalaxy
 ```
 
 For persistent VPS deployment, use systemd:
 
 ```ini
 [Unit]
-Description=AXYN Music Bot
+Description=Music Galaxy Music Bot
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/SheenxMusic
-EnvironmentFile=/home/ubuntu/SheenxMusic/.env
-Environment="PATH=/home/ubuntu/SheenxMusic/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-ExecStart=/home/ubuntu/SheenxMusic/venv/bin/python3 -m ShrutixMusic
+WorkingDirectory=/home/ubuntu/Music-Galaxy
+EnvironmentFile=/home/ubuntu/Music-Galaxy/.env
+Environment="PATH=/home/ubuntu/Music-Galaxy/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/ubuntu/Music-Galaxy/venv/bin/python3 -m MusicGalaxy
 Restart=always
 RestartSec=10
 
@@ -77,8 +77,8 @@ Then:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now axyn
-sudo systemctl status axyn
+sudo systemctl enable --now musicgalaxy
+sudo systemctl status musicgalaxy
 ```
 
 ## Render
@@ -106,7 +106,7 @@ Copy `.env.example` to `.env` and fill in the required values.
 
 ```text
 .
-├── ShrutixMusic/
+├── MusicGalaxy/
 ├── strings/
 ├── requirements.txt
 ├── Procfile
@@ -121,8 +121,8 @@ Copy `.env.example` to `.env` and fill in the required values.
 
 ## License and attribution
 
-This project contains code derived from the upstream ShrutixMusic project. The upstream license and attribution requirements are retained in `LICENSE`.
+This project contains code derived from the upstream MusicGalaxy project. The upstream license and attribution requirements are retained in `LICENSE`.
 
-AXYN-specific branding, configuration and customization are maintained by **@Thegrime**.
+Music Galaxy-specific branding, configuration and customization are maintained by **@RahatCodes7**.
 
 See `LICENSE` before redistributing or publishing modified copies.

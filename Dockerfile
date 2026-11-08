@@ -38,4 +38,4 @@ RUN python3 -m ensurepip --default-pip >/dev/null 2>&1 || true; \
 COPY . /app/
 RUN chmod +x /app/start /app/setup
 
-CMD ["python3", "-m", "ShrutixMusic"]
+CMD ["python3", "-m", "MusicGalaxy"]

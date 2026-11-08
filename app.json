@@ -1,12 +1,12 @@
 {
-  "name": "ShrutixMusic",
+  "name": "MusicGalaxy",
   "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
   "logo": "https://telegra.ph/file/5a5039d21a5cedb5bd6bc-e25218a8dd3941e289.jpg",
   "keywords": [
     "python3",
     "telegram",
     "bot",
-    "Shrutix",
+    "MusicGalaxy",
     "MusicBot",
     "telegram-bot",
     "pyrogram"
@@ -57,15 +57,25 @@
       "value": "",
       "required": true
     },
-    "SHRUTI_API_URL": {
-      "description": "Your Shruti API URL",
-      "value": "https://api.shrutibots.site",
+    "YUKI_API_URL": {
+      "description": "Download API base URL (Yuki/DLT compatible)",
+      "value": "https://dltapi.cc.cd",
       "required": true
     },
-    "SHRUTI_API_KEY": {
-      "description": "Get API key from Telegram bot @SHRUTIAPIBOT",
-      "value": "",
+    "YUKI_API_KEY": {
+      "description": "Download API key (YUKI/DLT) - get from provider",
+      "value": "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw",
       "required": true
+    },
+    "DLT_API_URL": {
+      "description": "Download API base URL (alias for YUKI_API_URL)",
+      "value": "https://dltapi.cc.cd",
+      "required": false
+    },
+    "DLT_API_KEY": {
+      "description": "Download API key (alias for YUKI_API_KEY)",
+      "value": "dl_live_IMbe7IFdA-9pgZd1IgEKnFRBvEOwEC00Om1RSzUJStw",
+      "required": false
     }
   },
   "buildpacks": [
