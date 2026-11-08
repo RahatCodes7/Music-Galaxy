@@ -2,7 +2,7 @@ import random
 from typing import Dict, List, Union
 
 from MusicGalaxy import userbot
-from MusicGalaxy.core.mongo import mongodb
+from MusicGalaxy.core.postgres import mongodb
 
 authdb = mongodb.adminauth
 authuserdb = mongodb.authuser

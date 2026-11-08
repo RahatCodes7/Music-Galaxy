@@ -5,7 +5,7 @@ import heroku3
 from pyrogram import filters
 
 import config
-from MusicGalaxy.core.mongo import mongodb
+from MusicGalaxy.core.postgres import mongodb
 
 from .logging import LOGGER
 

@@ -110,19 +110,34 @@ async def _download_from_yuki(video_id: str, media_type: str, timeout: int) -> s
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     file_path = None
     try:
+        youtube_url = f"https://www.youtube.com/watch?v={video_id}"
+        fmt = "mp3" if media_type == "audio" else "mp4"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {YUKI_API_KEY}",
+        }
         async with aiohttp.ClientSession() as session:
-            async with session.get(
-                f"{YUKI_STREAM_URL}/stream/{video_id}",
-                params={"type": media_type, "api_key": YUKI_API_KEY},
+            async with session.post(
+                f"{YUKI_STREAM_URL}/v1/dlt/youtube/download",
+                headers=headers,
+                json={"url": youtube_url, "format": fmt},
                 timeout=aiohttp.ClientTimeout(total=timeout),
             ) as resp:
                 if resp.status != 200:
                     return None
-                ctype = (resp.headers.get("Content-Type") or "").lower()
-                if "json" in ctype:
+                data = await resp.json()
+            download_url = (data or {}).get("data", {}).get("download_url")
+            if not download_url:
+                return None
+            file_ext = "mp3" if media_type == "audio" else "mp4"
+            file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.{file_ext}")
+            async with session.get(
+                f"{YUKI_STREAM_URL}{download_url}",
+                headers={"Authorization": f"Bearer {YUKI_API_KEY}"},
+                timeout=aiohttp.ClientTimeout(total=timeout),
+            ) as resp:
+                if resp.status != 200:
                     return None
-                ext = _extension_for(media_type, resp.headers)
-                file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.{ext}")
                 with open(file_path, "wb") as f:
                     async for chunk in resp.content.iter_chunked(131072):
                         f.write(chunk)
