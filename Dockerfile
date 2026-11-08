@@ -29,8 +29,10 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY requirements.txt ./
+# retry hard: the deployment host drops connections and github tarballs
+# occasionally 504; --retries keeps a single timeout from failing the build
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir --retries 10 --timeout 120 -r requirements.txt
 
 COPY . /app/
 RUN chmod +x /app/start /app/setup
