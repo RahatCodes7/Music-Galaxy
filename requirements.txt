@@ -11,7 +11,7 @@ httpx[http2]
 asyncpg
 pillow
 psutil
-pyrogram==2.2.26
+pyrogram
 py-tgcalls==2.3.3
 python-dotenv
 pyyaml
