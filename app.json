@@ -1,12 +1,12 @@
 {
-  "name": "ShrutixMusic",
+  "name": "MusicGalaxy",
   "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
   "logo": "https://telegra.ph/file/5a5039d21a5cedb5bd6bc-e25218a8dd3941e289.jpg",
   "keywords": [
     "python3",
     "telegram",
     "bot",
-    "Shrutix",
+    "MusicGalaxy",
     "MusicBot",
     "telegram-bot",
     "pyrogram"
@@ -57,13 +57,13 @@
       "value": "",
       "required": true
     },
-    "SHRUTI_API_URL": {
-      "description": "Your Shruti API URL",
-      "value": "https://api.shrutibots.site",
+    "YUKI_API_URL": {
+      "description": "Your Yuki API URL",
+      "value": "https://music.yukiapi.site",
       "required": true
     },
-    "SHRUTI_API_KEY": {
-      "description": "Get API key from Telegram bot @SHRUTIAPIBOT",
+    "YUKI_API_KEY": {
+      "description": "Get API key from Telegram bot @GALAXYAPIBOT",
       "value": "",
       "required": true
     }

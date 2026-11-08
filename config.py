@@ -29,7 +29,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY", "")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/NoxxOP/ShrutixMusic",
+    "https://github.com/RahatCodes7/Music-Galaxy",
 )
 
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
@@ -40,16 +40,16 @@ AUTO_UPDATE = getenv("AUTO_UPDATE", "false").lower() in ("1", "true", "yes", "on
 
 GIT_TOKEN = getenv("GIT_TOKEN")
 
-# Get API Key from @SHRUTIAPIBOT
+# Get API Key from @GALAXYAPIBOT
 
 SUPPORT_CHANNEL = getenv(
     "SUPPORT_CHANNEL",
-    "https://t.me/ShrutiBots"
+    "https://t.me/your_channel"
 )
 
 SUPPORT_CHAT = getenv(
     "SUPPORT_CHAT",
-    "https://t.me/ShrutiSupportChat"
+    "https://t.me/your_group"
 )
 
 AUTO_LEAVING_ASSISTANT = getenv(
