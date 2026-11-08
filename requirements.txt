@@ -12,7 +12,7 @@ kurigram @ https://github.com/KurimuzonAkuma/kurigram/archive/56a193aa6ddb40a51d
 asyncpg
 pillow
 psutil
-py-tgcalls==0.9.7
+py-tgcalls>=3.0.0
 python-dotenv
 pyyaml
 requests
