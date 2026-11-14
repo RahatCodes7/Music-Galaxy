@@ -1,10 +1,26 @@
 import re
 from os import getenv
+from pathlib import Path
 
 from dotenv import load_dotenv
 from pyrogram import filters
 
+from mongo_utils import env, env_int
+
+BASE_DIR = Path(__file__).resolve().parent
+
+# Load .env next to this file first, then the working directory.  Without the
+# explicit path the values are only found when the bot is started from the
+# repository root - `systemctl start` and bare `python3 -m MusicGalaxy` from
+# another folder used to end up with an empty MONGO_DB_URI.
+load_dotenv(BASE_DIR / ".env")
 load_dotenv()
+
+
+# env helpers are shared with mongo_utils/dbcheck so both read .env the same way
+_env = env
+_env_int = env_int
+
 
 # Get from my.telegram.org/app
 API_ID = int(getenv("API_ID", ""))
@@ -13,8 +29,25 @@ API_HASH = getenv("API_HASH", "")
 # Get from @BotFather
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
-# Get from MongoDB Atlas
-MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+# Connections
+# Local server:  mongodb://127.0.0.1:27017
+# Atlas/cluster: mongodb+srv://user:pass@cluster.mongodb.net/musicgalaxy
+MONGO_DB_URI = _env("MONGO_DB_URI")
+
+# Optional: forces the database the bot writes into. When empty the name is
+# taken from the URI path (".../musicgalaxy") or defaults to "MusicGalaxy".
+MONGO_DB_NAME = _env("MONGO_DB_NAME")
+
+# How long the driver waits for a reachable server before reporting a failure.
+MONGO_TIMEOUT_MS = _env_int("MONGO_TIMEOUT_MS", 8000)
+
+# Needed for a single-node local replica set without a discoverable set name.
+MONGO_DIRECT_CONNECTION = _env("MONGO_DIRECT_CONNECTION", "false").lower() in (
+    "1",
+    "true",
+    "yes",
+    "on",
+)
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "60"))
 

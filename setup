@@ -103,7 +103,7 @@ pprint "API ID: "; color_reset; read api_id
 pprint "\nAPI HASH: "; color_reset; read api_hash
 pprint "\nBOT TOKEN: "; color_reset; read bot_token
 pprint "\nOWNER ID:"; color_reset; read ownid
-pprint "\nMONGO DB URI: "; color_reset; read mongo_db
+pprint "\nMONGO DB URI (local: mongodb://127.0.0.1:27017 | Atlas: mongodb+srv://...): "; color_reset; read mongo_db
 pprint "\nLOG GROUP ID: "; color_reset; read logger
 pprint "\nSTRING SESSION: "; color_reset; read string_session
 

@@ -28,7 +28,7 @@
       "required": true
     },
     "MONGO_DB_URI": {
-      "description": "Get a mongodb url from https://cloud.mongodb.com.",
+      "description": "MongoDB connection string. Local: mongodb://127.0.0.1:27017 | Atlas: mongodb+srv://user:pass@cluster.mongodb.net/musicgalaxy (verify with python3 dbcheck.py).",
       "value": "",
       "required": true
     },
