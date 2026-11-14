@@ -8,9 +8,10 @@ gitpython
 hachoir
 heroku3
 httpx[http2]
-motor
+motor>=3.6,<4
 pillow
 psutil
+pymongo>=4.9,<5
 pyrogram
 py-tgcalls==2.3.3
 python-dotenv

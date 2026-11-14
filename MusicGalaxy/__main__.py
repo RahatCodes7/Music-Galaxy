@@ -10,6 +10,11 @@ from pytgcalls.exceptions import NoActiveGroupCall
 import config
 from MusicGalaxy import LOGGER, galaxy, userbot
 from MusicGalaxy.core.call import Galaxy
+from MusicGalaxy.core.mongo import (
+    MongoConnectionError,
+    close_connection,
+    verify_connection,
+)
 from MusicGalaxy.misc import sudo
 from MusicGalaxy.plugins import ALL_MODULES
 from MusicGalaxy.utils.database import get_banned_users, get_gbanned
@@ -51,7 +56,19 @@ async def init():
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
-    await sudo()
+    try:
+        await verify_connection()
+    except MongoConnectionError as exc:
+        LOGGER(__name__).error(str(exc))
+        raise SystemExit(1) from None
+    try:
+        await sudo()
+    except Exception as exc:  # DB reachable but not writable (auth/quota)
+        LOGGER(__name__).error(
+            "Mongo Database is connected but the sudoers document could not be "
+            f"written: {type(exc).__name__}: {exc}"
+        )
+        raise SystemExit(1) from None
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -83,6 +100,7 @@ async def init():
     await idle()
     await galaxy.stop()
     await userbot.stop()
+    await close_connection()
     LOGGER("MusicGalaxy").info("Stopping MusicGalaxy Music Bot...")
 
 
